@@ -1,7 +1,9 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import com.twitter.poruke.*;
+
+import com.twitter.*;
+import com.twitter.poruke.TwitterPoruka;
 
 public class TwitterPorukaTest {
 
