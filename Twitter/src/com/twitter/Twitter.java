@@ -5,7 +5,8 @@ import com.twitter.poruke.TwitterPoruka;
 
 /**
  * 
- * @author lukabaljak Klasa koja predstavlja drustvenu mrezu Twitter.
+ * @author lukabaljak 
+ * Klasa koja predstavlja drustvenu mrezu Twitter.
  */
 public class Twitter {
 	/**
@@ -26,13 +27,17 @@ public class Twitter {
 	 * @param korisnik
 	 *            Onaj koji pise poruku.
 	 * @param poruka
-	 *            Sama ta poruka. Pravi se nova poruka i puni podacima nakon
-	 *            cega se unosi na kraj liste.
+	 *            Sama ta poruka. 
+	 * 
+	 * Pravi se nova poruka i puni podacima nakon cega se unosi na kraj liste.
 	 * 
 	 */
 	public void unesi(String korisnik, String poruka) {
+		if (korisnik == null || poruka == null || korisnik.isEmpty() || poruka.isEmpty()) {
+			throw new RuntimeException("Morate uneti korisnika i poruku.");
+		}
 		TwitterPoruka tp = new TwitterPoruka();
-		tp.setKorisnik("korisnik");
+		tp.setKorisnik(korisnik);
 		tp.setPoruka(poruka);
 		poruke.addLast(tp);
 	}
@@ -45,7 +50,7 @@ public class Twitter {
 	 *            Predstavlja onaj tag koji se trazi.
 	 * @return Vraca se lista sa svim Twitter porukama koje sadrze trazeni tag.
 	 * 
-	 *         Ako je maxBroj <=0, vraca maxBroj se postavlja na 100 poruka
+	 *         Ako je maxBroj <=0, maxBroj se postavlja na 100 poruka.
 	 *         Dodat je pomocni niz koja predstavlja rezultat pretrage tj.
 	 *         sadrzace sve poruke koje u sebi imaju zadati tag. Pretrazuju se
 	 *         poruke i traze se one koje sadrze tag. Ako se nadje neka takva, i
