@@ -6,7 +6,12 @@ import com.twitter.poruke.TwitterPoruka;
 /**
  * 
  * @author lukabaljak 
- * Klasa koja predstavlja drustvenu mrezu Twitter.
+ * 		   
+ * 			Klasa koja predstavlja drustvenu mrezu Twitter.
+ * 			Sluzi sa pravljenje novih poruka na Twitteru, kao
+ * 			i za pretrazivanje svih unetih poruka u odnosu na 
+ * 			zeljeni tag, kako bi se korisniku prikazale sve 
+ * 			poruke koje sadrze zeljeni tag.
  */
 public class Twitter {
 	/**
@@ -29,7 +34,9 @@ public class Twitter {
 	 * @param poruka
 	 *            Sama ta poruka. 
 	 * 
-	 * Pravi se nova poruka i puni podacima nakon cega se unosi na kraj liste.
+	 *     	 Pravi se Twitter poruka sa korisnikom i porukom koji
+	 *     	 su prosledjeni kao parametri. Nakon sto se napravi
+	 *       Twitter poruka ona se smesta na kraj liste poruka.
 	 * 
 	 */
 	public void unesi(String korisnik, String poruka) {
@@ -50,12 +57,14 @@ public class Twitter {
 	 *            Predstavlja onaj tag koji se trazi.
 	 * @return Vraca se lista sa svim Twitter porukama koje sadrze trazeni tag.
 	 * 
-	 *         Ako je maxBroj <=0, maxBroj se postavlja na 100 poruka.
-	 *         Dodat je pomocni niz koja predstavlja rezultat pretrage tj.
-	 *         sadrzace sve poruke koje u sebi imaju zadati tag. Pretrazuju se
-	 *         poruke i traze se one koje sadrze tag. Ako se nadje neka takva, i
-	 *         ako nije prekoracen maxBroj ona se upisuje u niz. Ako je
-	 *         prekoracen maxBroj,pretraga se prekida.
+	 *         Ova metoda pretrazuje listu Twitter poruka i pronalazi 
+	 *         one u kojima se nalazi tag koji se trazi. Postavlja se 
+	 *         maksimalan broj poruka koje mogu da budu rezultat pretrage.
+	 *    	   Poruke sa trazenim tagom se smestaju u pomocni niz koji 
+	 *    	   metoda vraca kao povratnu vrednost. Ukoliko postoji vise 
+	 *         poruka sa trazenim tagom od maksimalnog broja poruka, 
+	 *         pretraga se prekida.
+	 *         
 	 */
 
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
